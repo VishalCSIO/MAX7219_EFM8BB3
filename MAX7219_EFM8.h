@@ -189,4 +189,27 @@ typedef enum DIGIT_LOCATIONS
 
 }digit_locations;
 
+typedef enum MAX7219_ALPHABETS_COMMANDS
+{
+  A = 0x77,
+  b = 0x1F,
+  C = 0x4E,
+  d = 0x3D,
+  E = 0x4F,
+  F = 0x47,
+  G = 0x5E,
+  H = 0x37,
+  I = 0x30,
+  J = 0x3C,
+  L = 0x0E,
+  n = 0x15,
+  o = 0x1D,
+  P = 0x67,
+  q = 0x73,
+  R = 0x05,
+  S = 0x5B,
+  t = 0x0F,
+  U = 0x3E,
+};
+
 #endif /* INC_MAX7219_EFM8_H_ */
