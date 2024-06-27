@@ -48,7 +48,7 @@ main (void)
 
   while (1)
     {
-      DisplayTest ();             // For Checking
+     DisplayTest ();             // For Checking Display
     }
 }
 
