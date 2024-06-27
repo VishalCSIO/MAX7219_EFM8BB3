@@ -290,17 +290,28 @@ void MAX7219_START()
 void setdigit(uint8_t digit,uint8_t disp_loc )
 {
   uint8_t DIGIT_COMMAND[DIGIT_COMMAND_BUFFER]={zero,one,two,three,four,five,six,seven,eight,nine};
-  uint8_t DISPLAY_COMMAND[DISPLAY_COMMAND_BUFFER] = {1,2,3,4,5,6,7,8};
+  uint8_t DISPLAY_LOC_COMMAND[DISPLAY_COMMAND_BUFFER] = {1,2,3,4,5,6,7,8};
 
-  uint8_t SEND_DIGIT_CMD[COMMAND_BUFFER_SIZE];
+  uint8_t SEND_DIGIT_CMD[COMMAND_BUFFER_SIZE] = {0};
 
-  SEND_DIGIT_CMD[first_byte] = DISPLAY_COMMAND[disp_loc];
+  SEND_DIGIT_CMD[first_byte] = DISPLAY_LOC_COMMAND[disp_loc];
   SEND_DIGIT_CMD[second_byte] = DIGIT_COMMAND[digit];
 
   SPI_transfer_data(SEND_DIGIT_CMD,COMMAND_BUFFER_SIZE);
 
 }
 
+void setalphabet(uint8_t alphabet,uint8_t disp_loc)
+{
+  uint8_t DISPLAY_LOC_COMMAND[DISPLAY_COMMAND_BUFFER] = {1,2,3,4,5,6,7,8};
+
+  uint8_t SEND_ALPHABET_CMD[COMMAND_BUFFER_SIZE] = {0};
+
+  SEND_ALPHABET_CMD[first_byte] = DISPLAY_LOC_COMMAND[disp_loc];
+  SEND_ALPHABET_CMD[second_byte] = alphabet;
+
+  SPI_transfer_data(SEND_ALPHABET_CMD,COMMAND_BUFFER_SIZE);
+}
 /*******************************************************************************
  * @fn void DisplayTest()
  *
@@ -325,6 +336,13 @@ void DisplayTest()
 
   setdigit(8,d1);
   setdigit(9,d2);
+
+  setalphabet(A,d3);
+  setalphabet(b,d4);
+  setalphabet(C,d5);
+  setalphabet(d,d6);
+  setalphabet(E,d7);
+  setalphabet(F,d8);
   delay_ms(500);
 
   CLEAR_DISPLAY();
