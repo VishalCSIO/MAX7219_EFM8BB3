@@ -9,6 +9,5 @@ The SPI communication protocol of the EFM8BB3 is utilized to control the MAX7219
 - SPI_SCK    - CLK
 - SPI_NSS    - CHIPSELECT
 
-### Remaining Work:: 
-Not included the alphabets yet to show on display.
+
 
